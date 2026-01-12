@@ -54,11 +54,20 @@ main { position: relative; }
     left: 50%;
     transform: translate(-50%, -60%); /* ligera elevación inicial */
     z-index: 20;
-    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 500px;
+    padding: 1.25rem; 
 }
+
+.pestana img {
+    width: 100%;
+    max-width: 880px;
+    height: auto;
+    display: block;
+}
+
 
 .pestana .redes {
     margin-top: 28px; /* aumentar espacio entre imagen y texto */
@@ -70,6 +79,7 @@ main { position: relative; }
     padding: 0;
 
 }
+
 
 .pestana .redes a,
 .pestana .redes a:visited {
@@ -99,62 +109,62 @@ footer {
 /* Responsive: móvil */
 @media (max-width: 599px) {
     /* Aumentar tamaño base en móvil para facilitar lectura */
-    html { font-size: 18px; }
+    html { font-size: 13px; }
 
     main { padding: 1.2rem; }
 
-    /* Pestaña más grande y centrada un poco más arriba */
-    .pestana {
-        width: 94%;
-        top: 44%;
-        transform: translate(-50%, -54%);
+    header {
+        width: 220px;
+        height: auto;
     }
 
-    /* Imagen de la pestaña ocupa todo el ancho disponible */
+    /* Pestaña más grande y centrada para pantallas estrechas (~400px) */
+    .pestana {
+        width: 100%;
+        width: 200px; /* límite razonable en móvil */
+        top: 44%;
+        transform: translate(-50%, -52%);
+        padding: 0.75rem;
+    }
+
+    /* Imagen de la pestaña ocupa todo el ancho disponible (sin limitar en exceso) */
     .pestana img {
         width: 100%;
-        max-width: 420px; /* permite imagen más grande si cabe */
+        max-width: none;
         height: auto;
         display: block;
     }
 
     /* Texto más grande y más espaciado */
     .pestana .redes {
-        margin-top: 32px;
+        margin-top: 36px;
         padding: 0 1rem;
     }
     .pestana .redes p {
-        font-size: 1.15rem; /* 18px aprox */
+        font-size: 1.25rem; /* ~20px */
         line-height: 1.5;
     }
     .pestana .redes a {
-        padding: 8px 12px; /* target táctil mayor */
+        padding: 10px 14px; /* target táctil mayor */
         display: inline-block;
     }
 
     /* Botón más cómodo de tocar */
     .boton img {
-        width: 56px;
+        width: 64px;
         height: auto;
     }
 }
 
-/* Responsive: tablet */
-@media (min-width: 600px) and (max-width: 899px) {
-    .pestana {
-        width: 70%;
-        top: 48%;
-        transform: translate(-50%, -52%);
-    }
-    .pestana img { max-width: 520px; width: 100%; }
-    .pestana .redes p { font-size: 1.05rem; }
-}
 /* Responsive: escritorio */
 @media (min-width: 900px) {
     .pestana {
-        width: 300px;
+        /* aumentar tamaño en pantallas de escritorio pequeñas/medianas */
+        width: 60%;
+        max-width: 900px;
         top: 50%;
         transform: translate(-50%, -50%);
+        padding: 1rem;
     }
     .pestana img { max-width: 100%; width: 100%; }
     .pestana .redes p { font-size: 1.08rem; margin-top: 32px; }
@@ -163,7 +173,9 @@ footer {
 
 @media (min-width: 1200px) {
     .pestana {
-        width: 420px;
+        /* más grande en pantallas anchas */
+        width: 720px;
+        max-width: 920px;
         top: 48%;
         transform: translate(-50%, -50%);
         box-shadow: 0 18px 40px rgba(0,0,0,0.12);
@@ -172,7 +184,7 @@ footer {
     }
 
     .pestana img {
-        max-width: 640px;
+        max-width: 880px;
         width: 100%;
     }
 
@@ -182,4 +194,4 @@ footer {
     }
 
     body { max-width: 1200px; margin: 0 auto; }
-}
+     }
