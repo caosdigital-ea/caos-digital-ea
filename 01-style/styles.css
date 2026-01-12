@@ -98,22 +98,45 @@ footer {
 
 /* Responsive: móvil */
 @media (max-width: 599px) {
-    main { padding: 1rem; }
+    /* Aumentar tamaño base en móvil para facilitar lectura */
+    html { font-size: 18px; }
+
+    main { padding: 1.2rem; }
+
+    /* Pestaña más grande y centrada un poco más arriba */
     .pestana {
-        width: 92%;
-        top: 45%;
-        transform: translate(-50%, -55%);
+        width: 94%;
+        top: 44%;
+        transform: translate(-50%, -54%);
     }
+
+    /* Imagen de la pestaña ocupa todo el ancho disponible */
     .pestana img {
-        max-width: 320px;
-        width: 88%;
+        width: 100%;
+        max-width: 420px; /* permite imagen más grande si cabe */
+        height: auto;
+        display: block;
     }
+
+    /* Texto más grande y más espaciado */
     .pestana .redes {
-        margin-top: 28px;
-        padding: 0 0.75rem;
+        margin-top: 32px;
+        padding: 0 1rem;
     }
-    .pestana .redes p { font-size: 1rem; line-height: 1.4; }
-    .boton { transform: translateY(0); }
+    .pestana .redes p {
+        font-size: 1.15rem; /* 18px aprox */
+        line-height: 1.5;
+    }
+    .pestana .redes a {
+        padding: 8px 12px; /* target táctil mayor */
+        display: inline-block;
+    }
+
+    /* Botón más cómodo de tocar */
+    .boton img {
+        width: 56px;
+        height: auto;
+    }
 }
 
 /* Responsive: tablet */
