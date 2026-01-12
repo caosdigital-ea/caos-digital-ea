@@ -1,0 +1,162 @@
+*{box-sizing: border-box;margin: 0; padding: 0;}
+
+body {
+    font-family: futura-pt, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    display: grid;
+    grid-row: auto auto auto;
+    row-gap: 20px;
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura y centre su contenido */
+    place-items: center;
+}
+
+header {
+    align-self: center;
+}
+
+/* cursor y foco visible para el elemento que actúa como botón */
+.boton { cursor: pointer; }
+.boton:focus { outline: 2px solid Highlight; outline-offset: 2px; }
+
+/*script*/
+.pestana, .redes {
+    transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(-6px);
+    visibility: hidden;
+    pointer-events: none;
+}
+.pestana:not(.hidden), .redes:not(.hidden) {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    pointer-events: auto;
+}
+.boton {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.boton:focus {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+}
+/* overlay: posiciona la pestaña encima del botón */
+main { position: relative; }
+
+.pestana {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%); /* ligera elevación inicial */
+    z-index: 20;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pestana .redes {
+    margin-top: 28px; /* aumentar espacio entre imagen y texto */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+
+}
+
+.pestana .redes a,
+.pestana .redes a:visited {
+    color: #C84130;
+    text-decoration: underline;
+    text-decoration-color: #C84130;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    background: transparent;
+}
+
+
+.pestana:not(.hidden) {
+    transform: translate(-50%, -50%); /* centrado exacto al mostrarse */
+}
+
+.boton { 
+    position: relative; 
+    z-index: 10; 
+}
+
+footer {
+    opacity: 70%;
+    font-size: 11px;
+}
+
+/* Responsive: móvil */
+@media (max-width: 599px) {
+    main { padding: 1rem; }
+    .pestana {
+        width: 92%;
+        top: 45%;
+        transform: translate(-50%, -55%);
+    }
+    .pestana img {
+        max-width: 320px;
+        width: 88%;
+    }
+    .pestana .redes {
+        margin-top: 28px;
+        padding: 0 0.75rem;
+    }
+    .pestana .redes p { font-size: 1rem; line-height: 1.4; }
+    .boton { transform: translateY(0); }
+}
+
+/* Responsive: tablet */
+@media (min-width: 600px) and (max-width: 899px) {
+    .pestana {
+        width: 70%;
+        top: 48%;
+        transform: translate(-50%, -52%);
+    }
+    .pestana img { max-width: 520px; width: 100%; }
+    .pestana .redes p { font-size: 1.05rem; }
+}
+/* Responsive: escritorio */
+@media (min-width: 900px) {
+    .pestana {
+        width: 300px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .pestana img { max-width: 100%; width: 100%; }
+    .pestana .redes p { font-size: 1.08rem; margin-top: 32px; }
+    body { max-width: 1100px; margin: 0 auto; }
+}
+
+@media (min-width: 1200px) {
+    .pestana {
+        width: 420px;
+        top: 48%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+        border-radius: 10px;
+        padding: 1rem 1.25rem;
+    }
+
+    .pestana img {
+        max-width: 640px;
+        width: 100%;
+    }
+
+    .pestana .redes p {
+        font-size: 1.1rem;
+        margin-top: 36px;
+    }
+
+    body { max-width: 1200px; margin: 0 auto; }
+}
